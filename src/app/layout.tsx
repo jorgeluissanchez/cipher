@@ -22,11 +22,12 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <body className={cn(
-          "min-h-screen font-sans",
+          "h-screen font-sans",
           fontSans.variable
-        )}>{children}
-        
-        <Toaster /></body>
+        )}>
+          {children}
+          <Toaster />
+        </body>
     </html>
   );
 }
