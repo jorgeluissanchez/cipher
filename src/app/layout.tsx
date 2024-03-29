@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <body className={cn(
-          "h-screen font-sans",
+          "font-sans",
           fontSans.variable
         )}>
           {children}
