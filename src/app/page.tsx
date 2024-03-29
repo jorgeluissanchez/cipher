@@ -1,17 +1,11 @@
 'use client'
-import { Button } from "@/components/ui/button"
-import Mensaje from "@/components/mensaje"
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
 
 import {
   Tabs,
@@ -19,8 +13,11 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
+import { EncodeForm } from "@/components/encode-form"
+import { DecodeForm } from "@/components/decode-form"
 
 export default function Home() {
+
   return (
     <div className="relative flex justify-center items-center h-screen overflow-hidden">
       <div className="absolute inset-x-0 -top-40 -z-10 overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
@@ -31,7 +28,7 @@ export default function Home() {
         <Tabs defaultValue="encriptar">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="encriptar">Encriptar</TabsTrigger>
-            <TabsTrigger value="desencriptar">Desencriptar</TabsTrigger>
+            <TabsTrigger value="descodificar">Descodificar</TabsTrigger>
           </TabsList>
           <TabsContent value="encriptar">
             <Card>
@@ -41,49 +38,22 @@ export default function Home() {
                   En esta sección podrás encriptar tus mensajes para informar a tus generales.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-2">
-                <div className="space-y-1">
-                  <Mensaje messages={["qwedqd qw1"]} />
-                </div>
-                <div className="space-y-1">
-                  <Label htmlFor="mensaje">Mensaje</Label>
-                  <Textarea id="mensaje" placeholder="Ingrese su mensaje aquí" />
-                </div>
-                <div className="space-y-1">
-                  <Label htmlFor="desplazamiento">Desplazamiento</Label>
-                  <Input id="desplazamiento" type="number" defaultValue="3" placeholder="Ingrese el desplazamiento aquí" />
-                </div>
+              <CardContent>
+                <EncodeForm />
               </CardContent>
-              <CardFooter>
-                <Button className="w-full">Encriptar</Button>
-              </CardFooter>
             </Card>
           </TabsContent>
-          <TabsContent value="desencriptar">
+          <TabsContent value="descodificar">
             <Card>
               <CardHeader>
-                <CardTitle>Desencriptar</CardTitle>
+                <CardTitle>Descodificar</CardTitle>
                 <CardDescription>
-                  En esta sección podrás desencriptar los mensajes que te han enviado tus generales.
+                  En esta sección podrás descodificar los mensajes que te han enviado tus generales.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-2">
-                <div className="space-y-1">
-                  <Mensaje messages={["Mensaje 1"]} />
-                </div>
-                <div className="space-y-1">
-                  <Label htmlFor="mensaje">Mensaje</Label>
-                  <Textarea id="mensaje" placeholder="Ingrese su mensaje encriptado aquí" />
-                </div>
-                <div className="space-y-1">
-                  <Label htmlFor="desplazamiento">Desplazamiento</Label>
-                  <Input id="desplazamiento" type="number" defaultValue="3" placeholder="Ingrese el desplazamiento aquí" />
-                </div>
+              <CardContent>
+                <DecodeForm />
               </CardContent>
-              <CardFooter>
-                <Button className="w-full"
-                >Desencriptar</Button>
-              </CardFooter>
             </Card>
           </TabsContent>
         </Tabs>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Inter as FontSans } from "next/font/google"
+import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,7 +24,9 @@ export default function RootLayout({
       <body className={cn(
           "min-h-screen font-sans",
           fontSans.variable
-        )}>{children}</body>
+        )}>{children}
+        
+        <Toaster /></body>
     </html>
   );
 }
