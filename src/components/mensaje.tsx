@@ -89,7 +89,20 @@ const Mensaje: React.FC<MessengerProps> = ({ messages }) => {
     };
   }, [messages]);
 
-  return <p ref={elementRef} className="p-4 bg-gray-100 rounded-md text-gray-900 text-sm mb-4"></p>;
-};
+  return <p ref={elementRef} className="p-4 bg-gray-100 rounded-md text-gray-900 text-sm mb-4" onClick={() => {
+    navigator.clipboard.writeText(messages[0]);
+    elementRef.current?.classList.add('bg-green-100');
+    if (elementRef.current) {
+      elementRef.current.innerText = "Copiado!";
+    }
 
+    setTimeout(() => {
+      elementRef.current?.classList.remove('bg-green-100');
+      if (elementRef.current) {
+        elementRef.current.innerText = messages[0];
+      }
+    }, 1000);
+  }
+  }></p>;
+}
 export default Mensaje;
