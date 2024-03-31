@@ -55,7 +55,7 @@ export function DecodeForm() {
   })
 
   async function onSubmit(data: DecodeFormValues) {
-    await fetch("https://caesar-cipher-phnv.onrender.com/decrypt", {
+    await fetch("https://code-theory-api.onrender.com/decrypt", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

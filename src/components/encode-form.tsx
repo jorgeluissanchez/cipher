@@ -55,7 +55,7 @@ export function EncodeForm() {
   })
 
   async function onSubmit(data: EncodeFormValues) {
-    await fetch("https://caesar-cipher-phnv.onrender.com/encrypt", {
+    await fetch("https://code-theory-api.onrender.com/encrypt", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
